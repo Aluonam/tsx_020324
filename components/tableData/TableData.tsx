@@ -17,7 +17,7 @@ export const TableData = () => {
             }
     }
 
-    const [dataStore, setDataStore] = useState<dataStorePrototype>()
+    const [dataStore, setDataStore] = useState<dataStorePrototype[]>()
 
     useEffect(() => {
 
@@ -33,6 +33,15 @@ export const TableData = () => {
 
     }, [])
 
+    const allDataIntoTable = dataStore?.map((obj)=>{
+        return(
+            <tr>
+                <td>{obj.id}</td>
+                <td>{obj.title}</td>
+                <td>{obj.price}</td>
+            </tr>
+        )
+    })
 
     
   return (
@@ -47,11 +56,7 @@ export const TableData = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>id</td>
-                    <td>title</td>
-                    <td>price</td>
-                </tr>
+                    {allDataIntoTable}
             </tbody>
         </table>
     </div>
