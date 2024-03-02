@@ -26,14 +26,34 @@ export const TableData = () => {
                 const url = await fetch(`https://fakestoreapi.com/products`);
                 const data = await url.json();
                 console.log(data)
-
+                setDataStore(data)
             }catch(error){console.log(error, "error detected")}
         }
         fetchData()
 
     }, [])
+
+
     
   return (
-    <div>TableData</div>
+    <div>
+        <h3>Datos:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>title</td>
+                    <td>price</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id</td>
+                    <td>title</td>
+                    <td>price</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
   )
 }
