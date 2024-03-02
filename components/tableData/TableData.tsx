@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react'
+import {ButtonMoreDetails} from './ButtonMoreDetails';
 
 export const TableData = () => {
 
@@ -39,6 +40,7 @@ export const TableData = () => {
                 <td>{obj.id}</td>
                 <td>{obj.title}</td>
                 <td>{obj.price}</td>
+                <td><ButtonMoreDetails></ButtonMoreDetails></td>
             </tr>
         )
     })
