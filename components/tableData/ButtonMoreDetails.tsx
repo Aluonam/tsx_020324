@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 
 
-export const ButtonMoreDetails: React.FC = () => {
+export const ButtonMoreDetails = ({description}:{description:string}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
-  };
+  };  
 
   const handleOk = () => {
     setIsModalOpen(false);
@@ -20,7 +20,7 @@ export const ButtonMoreDetails: React.FC = () => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Open Modal
+        Show more
       </Button>
       <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <p>Some contents...</p>

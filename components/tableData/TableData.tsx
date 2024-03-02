@@ -36,11 +36,11 @@ export const TableData = () => {
 
     const allDataIntoTable = dataStore?.map((obj)=>{
         return(
-            <tr>
+            <tr key={obj.id}>
                 <td>{obj.id}</td>
                 <td>{obj.title}</td>
                 <td>{obj.price}</td>
-                <td><ButtonMoreDetails></ButtonMoreDetails></td>
+                <td><ButtonMoreDetails description={obj.description}></ButtonMoreDetails></td>
             </tr>
         )
     })
