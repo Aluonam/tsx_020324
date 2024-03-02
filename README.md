@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Ejercicio con TypeScript y React
 
-First, run the development server:
+**Crea una tabla que consume una base de datos de productos https://fakestoreapi.com/products y muestra sus datos.**
+**Añade además un modal que te permita ver más datos**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Tipado de properties entre componentes:
+
+En el componente padre se envia la props con normalidad:
+```javascript 
+<ButtonMoreDetails description={obj.description} title={obj.title}></ButtonMoreDetails>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+En el componente hijo se desestructura el objeto:
+```javascript 
+export const ButtonMoreDetails = ({description}:{description:string}) => { ......}
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+En el componente hijo se desestructura el objeto en caso de tratarse de varias props mejor sacar el tipado fuera, antes de la función exportada:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```javascript 
+type ButtonMoreDetailsPropTypes = {
+    description:string,
+    title:string
+}
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+export const ButtonMoreDetails = ({description,title}:ButtonMoreDetailsPropTypes) => {....}
+```
