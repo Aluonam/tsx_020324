@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 
+type ButtonMoreDetailsPropTypes = {
+    description:string,
+    title:string
+}
 
-export const ButtonMoreDetails = ({description}:{description:string}) => {
+export const ButtonMoreDetails = ({description,title}:ButtonMoreDetailsPropTypes) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -22,10 +26,8 @@ export const ButtonMoreDetails = ({description}:{description:string}) => {
       <Button type="primary" onClick={showModal}>
         Show more
       </Button>
-      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+      <Modal title={title} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>{description}</p>
       </Modal>
     </>
   );

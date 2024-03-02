@@ -40,7 +40,7 @@ export const TableData = () => {
                 <td>{obj.id}</td>
                 <td>{obj.title}</td>
                 <td>{obj.price}</td>
-                <td><ButtonMoreDetails description={obj.description}></ButtonMoreDetails></td>
+                <td><ButtonMoreDetails description={obj.description} title={obj.title}></ButtonMoreDetails></td>
             </tr>
         )
     })
